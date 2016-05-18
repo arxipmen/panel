@@ -1,0 +1,15 @@
+<h3>Новася страна</h3>
+
+<%= form_for @country, url: country_index_path do |f| %>
+    <p>
+      <strong>Страна:</strong><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <strong>Полное название:</strong><br>
+      <%= f.text_field :full_name %>
+    </p>
+    <p>
+      <%= f.submit value: 'Добавить страну' %>
+    </p>
+<% end %>

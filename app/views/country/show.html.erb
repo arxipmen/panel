@@ -1,0 +1,14 @@
+<h4>Просмотр</h4>
+
+<table>
+  <tr>
+    <td><strong>Страна:</strong></td>
+    <td><%= @country.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Полное название:</strong></td>
+    <td><%= @country.full_name %></td>
+  </tr>
+</table>
+<%= link_to 'Назад', country_index_path %>
+<%= link_to 'Редактировать', edit_country_path(@country) %>

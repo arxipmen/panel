@@ -1,0 +1,16 @@
+<h3>Редактирование</h3>
+
+<%= form_for @country, url: country_path do |f| %>
+    <p>
+      <strong>Страна:</strong><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <strong>Полное название:</strong><br>
+      <%= f.text_field :full_name %>
+    </p>
+    <p>
+      <%= f.submit value: 'Сохранить изменения' %>
+    </p>
+<% end %>
+<%= link_to 'Назад', country_index_path %>
