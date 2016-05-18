@@ -1,12 +1,19 @@
 <h3>Редактирование</h3>
 
 <%= form_for @country, url: country_path do |f| %>
+    <% if @country.errors.any? %>
+        <div id="error_explanation">
+          <h4>Страна не сохранена!</h4>
+          <h4>Заполните все поля</h4>
+        </div>
+    <% end %>
+
     <p>
-      <strong>Страна:</strong><br>
+      <%= f.label :name, 'Страна' %><br>
       <%= f.text_field :name %>
     </p>
     <p>
-      <strong>Полное название:</strong><br>
+      <%= f.label :full_name, 'Полное название' %><br>
       <%= f.text_field :full_name %>
     </p>
     <p>
