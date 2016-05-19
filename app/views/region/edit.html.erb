@@ -1,0 +1,19 @@
+<h3>Редактирование региона</h3>
+
+<%= form_for @region, url: region_path do |f| %>
+    <p>
+      <%= f.label :name, 'Регион:' %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :code, 'Код региона:' %><br>
+      <%= f.text_field :code %>
+    </p>
+    <%= f.label :country_id, 'Страна:' %><br>
+    <%= f.select :country_id, @country_options %>
+    <p>
+      <%= f.submit value: 'Сохранить регион' %>
+    </p>
+
+<% end %>
+<%= link_to 'Назад', region_index_path %>
