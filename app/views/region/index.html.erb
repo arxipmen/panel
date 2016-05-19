@@ -1,0 +1,22 @@
+<h2>Все регионы</h2>
+
+<%= link_to 'Добавить регион', new_region_path %>
+<table>
+  <tr>
+    <th><strong>Название региона:</strong></th>
+    <th><strong>Код региона:</strong></th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% @region.each do |region| %>
+      <tr>
+        <td><%= region.name %></td>
+        <td><%= region.code %></td>
+        <td><%= link_to 'Просмотреть', region_path(region)%></td>
+        <td><%= link_to 'Изменить', edit_region_path(region)%></td>
+        <td><%= link_to 'Удалить', region_path(region), method: :delete,
+                        data: { confirm: 'Вы действительно хотите удалить запись?' }%></td>
+      </tr>
+  <% end %>
+</table>

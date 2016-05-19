@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # root 'welcome#index'
+  root 'admin#index'
 
   resources :city, :country, :region, :tourist_base
 
