@@ -4,5 +4,5 @@ class Region < ActiveRecord::Base
   validates :country_id,  presence: true, numericality: true
 
   belongs_to  :country
-  has_many    :city, dependent: :destroy
+  has_many    :cities, dependent: :destroy
 end

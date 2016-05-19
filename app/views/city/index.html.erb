@@ -9,7 +9,7 @@
   <% end %>
 </select>
 <strong> Выбрать регион: </strong>
-<select name="country" id="country_id">
+<select name="region" id="region_id">
   <option value="all">Все регионы</option>
   <% @region.each do |region| %>
       <option value="<%= region.id %>"><%= region.name %></option>

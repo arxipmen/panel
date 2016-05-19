@@ -1,0 +1,55 @@
+<h2>Все турбазы</h2>
+
+<%= link_to 'Добавить турбазу', new_tourist_base_path %>
+<strong> Выбрать страну: </strong>
+<select name="country" id="country_id">
+  <option value="all">Все страны</option>
+  <% @country.each do |country| %>
+      <option value="<%= country.id %>"><%= country.name %></option>
+  <% end %>
+</select>
+<strong> Выбрать регион: </strong>
+<select name="region" id="region_id">
+  <option value="all">Все регионы</option>
+  <% @region.each do |region| %>
+      <option value="<%= region.id %>"><%= region.name %></option>
+  <% end %>
+</select>
+<strong> Выбрать город: </strong>
+<select name="city" id="city_id">
+  <option value="all">Все города</option>
+  <% @city.each do |city| %>
+      <option value="<%= city.id %>"><%= city.name %></option>
+  <% end %>
+</select>
+<hr>
+<br>
+<table>
+  <tr>
+    <th><strong>Страна</strong></th>
+    <th><strong>Название региона</strong></th>
+    <th><strong>Город</strong></th>
+    <th><strong>Код региона</strong></th>
+    <th><strong>Название турбазы</strong></th>
+    <th><strong>Описание</strong></th>
+    <th><strong>Телефон</strong></th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% @tourist_base.each do |tourist_base| %>
+      <tr>
+        <td><%= tourist_base.city.region.country.name %></td>
+        <td><%= tourist_base.city.region.name %></td>
+        <td><%= tourist_base.city.name %></td>
+        <td><%= tourist_base.city.region.code %></td>
+        <td><%= tourist_base.name %></td>
+        <td><%= tourist_base.description %></td>
+        <td><%= tourist_base.phone %></td>
+        <td><%= link_to 'Просмотреть', tourist_base_path(tourist_base)%></td>
+        <td><%= link_to 'Изменить', edit_tourist_base_path(tourist_base)%></td>
+        <td><%= link_to 'Удалить', tourist_base_path(tourist_base), method: :delete,
+                        data: { confirm: 'Вы действительно хотите удалить запись?' }%></td>
+      </tr>
+  <% end %>
+</table>

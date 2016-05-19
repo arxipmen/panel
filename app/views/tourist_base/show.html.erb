@@ -1,0 +1,30 @@
+<h2>Просмотр турбазы</h2>
+
+<table>
+  <tr>
+    <td><strong>Страна:</strong></td>
+    <td><%= @tourist_base.city.region.country.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Регион:</strong></td>
+    <td><%= @tourist_base.city.region.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Код региона:</strong></td>
+    <td><%= @tourist_base.city.region.code %></td>
+  </tr>
+  <td><strong>Город:</strong></td>
+  <td><%= @tourist_base.city.name %></td>
+  </tr>
+  <td><strong>Название турбазы:</strong></td>
+  <td><%= @tourist_base.name %></td>
+  </tr>
+  <td><strong>Описание:</strong></td>
+  <td><%= @tourist_base.description %></td>
+  </tr>
+  <td><strong>Телефон:</strong></td>
+  <td><%= @tourist_base.phone %></td>
+  </tr>
+</table>
+<%= link_to 'Назад', tourist_base_index_path %>
+<%= link_to 'Редактировать', edit_tourist_base_path(@tourist_base) %>

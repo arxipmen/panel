@@ -3,8 +3,12 @@
 <%= form_for @city, url: city_path do |f| %>
 
     <p>
-      <%= f.label :code, 'Страна / регион:' %><br>
+      <%= f.label :region_id, 'Страна / регион:' %><br>
       <%= f.select :region_id, @region_options %>
+    </p>
+    <p>
+      <%= f.label :region_id, 'Код региона:' %><br>
+      <%= f.select :region_id, @region_code %>
     </p>
     <p>
       <%= f.label :name, 'Город:' %><br>
