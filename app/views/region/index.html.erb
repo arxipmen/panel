@@ -12,6 +12,7 @@
 <br>
 <table>
   <tr>
+    <th><strong>Страна:</strong></th>
     <th><strong>Название региона:</strong></th>
     <th><strong>Код региона:</strong></th>
     <th>&nbsp;</th>
@@ -20,6 +21,7 @@
   </tr>
   <% @region.each do |region| %>
       <tr>
+        <td><%= region.country.name %></td>
         <td><%= region.name %></td>
         <td><%= region.code %></td>
         <td><%= link_to 'Просмотреть', region_path(region)%></td>
