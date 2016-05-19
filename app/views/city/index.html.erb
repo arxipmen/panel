@@ -1,0 +1,42 @@
+<h2>Все города</h2>
+
+<%= link_to 'Добавить город', new_city_path %>
+<strong> Выбрать страну: </strong>
+<select name="country" id="country_id">
+  <option value="all">Все страны</option>
+  <% @country.each do |country| %>
+      <option value="<%= country.id %>"><%= country.name %></option>
+  <% end %>
+</select>
+<strong> Выбрать регион: </strong>
+<select name="country" id="country_id">
+  <option value="all">Все регионы</option>
+  <% @region.each do |region| %>
+      <option value="<%= region.id %>"><%= region.name %></option>
+  <% end %>
+</select>
+<hr>
+<br>
+<table>
+  <tr>
+    <th><strong>Страна:</strong></th>
+    <th><strong>Название региона:</strong></th>
+    <th><strong>Город:</strong></th>
+    <th><strong>Код региона:</strong></th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% @city.each do |city| %>
+      <tr>
+        <td><%= city.region.country.name %></td>
+        <td><%= city.region.name %></td>
+        <td><%= city.name %></td>
+        <td><%= city.region.code %></td>
+        <td><%= link_to 'Просмотреть', city_path(city)%></td>
+        <td><%= link_to 'Изменить', edit_city_path(city)%></td>
+        <td><%= link_to 'Удалить', city_path(city), method: :delete,
+                        data: { confirm: 'Вы действительно хотите удалить запись?' }%></td>
+      </tr>
+  <% end %>
+</table>

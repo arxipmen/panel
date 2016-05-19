@@ -1,0 +1,18 @@
+<h3>Редактирование Города</h3>
+
+<%= form_for @city, url: city_path do |f| %>
+
+    <p>
+      <%= f.label :code, 'Страна / регион:' %><br>
+      <%= f.select :region_id, @region_options %>
+    </p>
+    <p>
+      <%= f.label :name, 'Город:' %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.submit value: 'Сохранить город' %>
+    </p>
+
+<% end %>
+<%= link_to 'Назад', city_index_path %>
