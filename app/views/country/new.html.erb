@@ -1,23 +1,8 @@
 <h2 class="page-header">Добавить страну</h2>
 
-<%= form_for @country, url: country_index_path do |f| %>
-    <% if @country.errors.any? %>
-        <div id="error_explanation">
-          <h4>Страна не добавлена!</h4>
-          <h4>Заполните все поля</h4>
-        </div>
-    <% end %>
-
-    <p>
-      <%= f.label :name, 'Страна' %><br>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :full_name, 'Полное название' %><br>
-      <%= f.text_field :full_name %>
-    </p>
-    <p>
-      <%= f.submit value: 'Добавить страну' %>
-    </p>
+<%= simple_form_for @country, url: country_index_path do |f| %>
+  <%= f.input :name, label: 'Страна', hint: 'заполни' %>
+  <%= f.input :full_name, label: 'Полное название' %>
+  <%= link_to 'Назад', country_index_path, class: 'btn btn-primary btn-sm' %>
+  <%= f.button :submit, value: 'Добавить страну', class: 'btn btn-primary btn-sm' %>
 <% end %>
-<%= link_to 'Назад', country_index_path %>

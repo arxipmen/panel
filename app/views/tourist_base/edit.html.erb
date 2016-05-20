@@ -1,26 +1,10 @@
 <h2 class="page-header">Редактировать турбазу</h2>
 
-<%= form_for @tourist_base, url: tourist_base_path do |f| %>
-
-    <p>
-      <%= f.label :city_id, 'Город:' %><br>
-      <%= f.select :city_id, @city_options %>
-    </p>
-    <p>
-      <%= f.label :name, 'Название турбазы:' %><br>
-      <%= f.text_field :name, size: 50 %>
-    </p>
-    <p>
-      <%= f.label :description, 'Описание:' %><br>
-      <%= f.text_area :description, size: '50x15' %>
-    </p>
-    <p>
-      <%= f.label :phone, 'Телефон:' %><br>
-      <%= f.text_field :phone %>
-    </p>
-    <p>
-      <%= f.submit value: 'Сохранить турбазу' %>
-    </p>
-
+<%= simple_form_for @tourist_base, url: tourist_base_path do |f| %>
+  <%= f.input :city_id, collection: @city_options, label: 'Город' %>
+  <%= f.input :name, label: 'Название турбазы:' %>
+  <%= f.input :description, label: 'Описание' %>
+  <%= f.input :phone, label: 'Телефон' %>
+  <%= link_to 'Назад', tourist_base_index_path, class: 'btn btn-primary btn-sm' %>
+  <%= f.button :submit, value: 'Сохранить турбазу', class: 'btn btn-primary btn-sm' %>
 <% end %>
-<%= link_to 'Назад', tourist_base_index_path, class: 'btn btn-primary btn-sm' %>

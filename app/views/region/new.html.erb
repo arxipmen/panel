@@ -1,18 +1,9 @@
 <h2 class="page-header">Добавить регион</h2>
 
-<%= form_for @region, url: region_index_path do |f| %>
-    <p>
-      <%= f.label :name, 'Регион' %><br>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :code, 'Код региона' %><br>
-      <%= f.text_field :code %>
-    </p>
-      <%= f.label :country_id, 'Страна' %><br>
-      <%= f.select :country_id, @country_options %>
-    <p>
-      <%= f.submit value: 'Добавить регион' %>
-    </p>
-
+<%= simple_form_for @region, url: region_index_path do |f| %>
+  <%= f.input :name, label: 'Регион' %>
+  <%= f.input :code, label: 'Код региона' %>
+  <%= f.association :country, label: 'Страна' %>
+  <%= link_to 'Назад', region_index_path, class: 'btn btn-primary btn-sm' %>
+  <%= f.button :submit, value: 'Добавить регион', class: 'btn btn-primary btn-sm' %>
 <% end %>
