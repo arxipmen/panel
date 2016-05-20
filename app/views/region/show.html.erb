@@ -1,18 +1,14 @@
-<h2>Просмотр региона</h2>
+<h2 class="page-header"><%= @region.name %></h2>
 
-<table>
+<table class="table table-hover">
   <tr>
     <td><strong>Страна:</strong></td>
     <td><%= @region.country.name %></td>
-  </tr>
-  <tr>
-    <td><strong>Регион:</strong></td>
-    <td><%= @region.name %></td>
   </tr>
   <tr>
     <td><strong>Код региона:</strong></td>
     <td><%= @region.code %></td>
   </tr>
 </table>
-<%= link_to 'Назад', region_index_path %>
-<%= link_to 'Редактировать', edit_region_path(@region) %>
+<%= link_to 'Назад', region_index_path, class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Редактировать', edit_region_path(@region), class: 'btn btn-primary btn-sm' %>

@@ -1,20 +1,24 @@
-<h2>Все регионы</h2>
+<h2 class="page-header">Регионы</h2>
 
-<%= link_to 'Добавить регион', new_region_path %>
-<strong> Выбрать страну: </strong>
-<select name="country" id="country_id">
-  <option value="all">Все страны</option>
-  <% @country.each do |country| %>
-      <option value="<%= country.id %>"><%= country.name %></option>
-  <% end %>
-</select>
-<hr>
-<br>
-<table>
+<%= link_to 'Добавить регион', new_region_path, class: 'btn btn-primary navbar-btn' %>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Страна <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#" id="all">Все страны</a></li>
+    <% @country.each do |country| %>
+    <li><a href="#" id="<%= country.id %>"><%= country.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<table class="table table-hover">
   <tr>
-    <th><strong>Страна:</strong></th>
-    <th><strong>Название региона:</strong></th>
-    <th><strong>Код региона:</strong></th>
+    <th>Страна</th>
+    <th>Название региона</th>
+    <th>Код региона</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
@@ -24,9 +28,9 @@
         <td><%= region.country.name %></td>
         <td><%= region.name %></td>
         <td><%= region.code %></td>
-        <td><%= link_to 'Просмотреть', region_path(region)%></td>
-        <td><%= link_to 'Изменить', edit_region_path(region)%></td>
-        <td><%= link_to 'Удалить', region_path(region), method: :delete,
+        <td><%= link_to icon('eye', class: 'fa-lg'), region_path(region)%></td>
+        <td><%= link_to icon('pencil', class: 'fa-lg'), edit_region_path(region)%></td>
+        <td><%= link_to icon('trash', class: 'fa-lg'), region_path(region), method: :delete,
                         data: { confirm: 'Вы действительно хотите удалить запись?' }%></td>
       </tr>
   <% end %>

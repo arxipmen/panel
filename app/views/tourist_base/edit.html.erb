@@ -1,4 +1,4 @@
-<h3>Редактировать турбазу</h3>
+<h2 class="page-header">Редактировать турбазу</h2>
 
 <%= form_for @tourist_base, url: tourist_base_path do |f| %>
 
@@ -23,4 +23,4 @@
     </p>
 
 <% end %>
-<%= link_to 'Назад', tourist_base_index_path %>
+<%= link_to 'Назад', tourist_base_index_path, class: 'btn btn-primary btn-sm' %>

@@ -1,21 +1,14 @@
-<h2>Просмотр</h2>
+<h2 class="page-header"><%= @country.name %></h2>
 
-<table>
-  <tr>
-    <td><strong>Страна:</strong></td>
-    <td><%= @country.name %></td>
-  </tr>
-  <tr>
-    <td><strong>Полное название:</strong></td>
-    <td><%= @country.full_name %></td>
-  </tr>
-</table>
-<%= link_to 'Назад', country_index_path %>
-<%= link_to 'Редактировать', edit_country_path(@country) %>
+<p>Полное название: <strong><%= @country.full_name %></strong></p>
 
+<br>
+<%= link_to 'Назад', country_index_path, class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Редактировать', edit_country_path(@country), class: 'btn btn-primary btn-sm' %>
 
+<hr>
 <h3>Регионы в стране:</h3>
-<table>
+<table class="table table-hover">
   <tr>
   <th>Название региона</th>
   <th>Код региона</th>

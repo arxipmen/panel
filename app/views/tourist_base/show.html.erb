@@ -1,6 +1,6 @@
-<h2>Просмотр турбазы</h2>
+<h2 class="page-header"><%= @tourist_base.name %></h2>
 
-<table>
+<table class="table table-hover">
   <tr>
     <td><strong>Страна:</strong></td>
     <td><%= @tourist_base.city.region.country.name %></td>
@@ -13,18 +13,18 @@
     <td><strong>Код региона:</strong></td>
     <td><%= @tourist_base.city.region.code %></td>
   </tr>
+  <tr>
   <td><strong>Город:</strong></td>
   <td><%= @tourist_base.city.name %></td>
   </tr>
-  <td><strong>Название турбазы:</strong></td>
-  <td><%= @tourist_base.name %></td>
-  </tr>
+  <tr>
   <td><strong>Описание:</strong></td>
   <td><%= @tourist_base.description %></td>
   </tr>
+  <tr>
   <td><strong>Телефон:</strong></td>
   <td><%= @tourist_base.phone %></td>
   </tr>
 </table>
-<%= link_to 'Назад', tourist_base_index_path %>
-<%= link_to 'Редактировать', edit_tourist_base_path(@tourist_base) %>
+<%= link_to 'Назад', tourist_base_index_path, class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Редактировать', edit_tourist_base_path(@tourist_base), class: 'btn btn-primary btn-sm' %>

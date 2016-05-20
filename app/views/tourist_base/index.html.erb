@@ -1,38 +1,52 @@
-<h2>Все турбазы</h2>
+<h2 class="page-header">Турбазы</h2>
 
-<%= link_to 'Добавить турбазу', new_tourist_base_path %>
-<strong> Выбрать страну: </strong>
-<select name="country" id="country_id">
-  <option value="all">Все страны</option>
-  <% @country.each do |country| %>
-      <option value="<%= country.id %>"><%= country.name %></option>
-  <% end %>
-</select>
-<strong> Выбрать регион: </strong>
-<select name="region" id="region_id">
-  <option value="all">Все регионы</option>
-  <% @region.each do |region| %>
-      <option value="<%= region.id %>"><%= region.name %></option>
-  <% end %>
-</select>
-<strong> Выбрать город: </strong>
-<select name="city" id="city_id">
-  <option value="all">Все города</option>
-  <% @city.each do |city| %>
-      <option value="<%= city.id %>"><%= city.name %></option>
-  <% end %>
-</select>
-<hr>
-<br>
-<table>
+<%= link_to 'Добавить турбазу', new_tourist_base_path, class: 'btn btn-primary navbar-btn' %>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Страна <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#" id="all">Все страны</a></li>
+    <% @country.each do |country| %>
+        <li><a href="#" id="<%= country.id %>"><%= country.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Регион <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#" id="all">Все регионы</a></li>
+    <% @region.each do |region| %>
+        <li><a href="#" id="<%= region.id %>"><%= region.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Город <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#" id="all">Все регионы</a></li>
+    <% @city.each do |city| %>
+        <li><a href="#" id="<%= city.id %>"><%= city.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<table class="table table-hover">
   <tr>
-    <th><strong>Страна</strong></th>
-    <th><strong>Название региона</strong></th>
-    <th><strong>Город</strong></th>
-    <th><strong>Код региона</strong></th>
-    <th><strong>Название турбазы</strong></th>
-    <th><strong>Описание</strong></th>
-    <th><strong>Телефон</strong></th>
+    <th class="text-center">Страна</th>
+    <th class="text-center">Название региона</th>
+    <th class="text-center">Город</th>
+    <th class="text-center">Код региона</th>
+    <th class="text-center">Название турбазы</th>
+    <th class="text-center">Описание</th>
+    <th class="text-center">Телефон</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
@@ -46,9 +60,9 @@
         <td><%= tourist_base.name %></td>
         <td><%= tourist_base.description %></td>
         <td><%= tourist_base.phone %></td>
-        <td><%= link_to 'Просмотреть', tourist_base_path(tourist_base)%></td>
-        <td><%= link_to 'Изменить', edit_tourist_base_path(tourist_base)%></td>
-        <td><%= link_to 'Удалить', tourist_base_path(tourist_base), method: :delete,
+        <td><%= link_to icon('eye', class: 'fa-lg'), tourist_base_path(tourist_base)%></td>
+        <td><%= link_to icon('pencil', class: 'fa-lg'), edit_tourist_base_path(tourist_base)%></td>
+        <td><%= link_to icon('trash', class: 'fa-lg'), tourist_base_path(tourist_base), method: :delete,
                         data: { confirm: 'Вы действительно хотите удалить запись?' }%></td>
       </tr>
   <% end %>

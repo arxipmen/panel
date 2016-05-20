@@ -1,6 +1,6 @@
-<h2>Просмотр города</h2>
+<h2 class="page-header"><%= @city.name %></h2>
 
-<table>
+<table class="table table-hover">
   <tr>
     <td><strong>Страна:</strong></td>
     <td><%= @city.region.country.name %></td>
@@ -13,9 +13,7 @@
     <td><strong>Код региона:</strong></td>
     <td><%= @city.region.code %></td>
   </tr>
-    <td><strong>Город:</strong></td>
-    <td><%= @city.name %></td>
-  </tr>
 </table>
-<%= link_to 'Назад', city_index_path %>
-<%= link_to 'Редактировать', edit_city_path(@city) %>
+<br>
+<%= link_to 'Назад', city_index_path, class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Редактировать', edit_city_path(@city), class: 'btn btn-primary btn-sm' %>

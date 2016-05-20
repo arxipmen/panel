@@ -1,10 +1,10 @@
-<h2>Все страны</h2>
+<h2 class="page-header">Страны</h2>
 
-<%= link_to 'Добавить страну', new_country_path %>
-<table>
+<%= link_to 'Добавить страну', new_country_path, class: 'btn btn-primary navbar-btn' %>
+<table class="table table-hover">
   <tr>
-    <th><strong>Страна:</strong></th>
-    <th><strong>Полное название:</strong></th>
+    <th>Страна</th>
+    <th>Полное название</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
@@ -13,10 +13,10 @@
   <tr>
     <td><%= country.name %></td>
     <td><%= country.full_name %></td>
-    <td><%= link_to 'Просмотреть', country_path(country)%></td>
-    <td><%= link_to 'Изменить', edit_country_path(country)%></td>
-    <td><%= link_to 'Удалить', country_path(country), method: :delete,
-                    data: { confirm: 'Вы действительно хотите удалить запись?' }%></td>
+    <td><%= link_to icon('eye', class: 'fa-lg'), country_path(country) %></td>
+    <td><%= link_to icon('pencil', class: 'fa-lg'), edit_country_path(country)%></td>
+    <td><%= link_to icon('trash', class: 'fa-lg'), country_path(country),
+                    method: :delete, data: { confirm: 'Вы действительно хотите удалить запись?' }%></td>
   </tr>
   <% end %>
 </table>

@@ -1,7 +1,13 @@
+<h2 class="page-header">Главная</h2>
 
-<ul>
-  <li><%= link_to 'Страны',  country_index_path %></li>
-  <li><%= link_to 'Регионы', region_index_path %></li>
-  <li><%= link_to 'Города',  city_index_path %></li>
-  <li><%= link_to 'Турбазы', tourist_base_index_path %></li>
-</ul>
+<div class="panel panel-default">
+  <div class="panel-heading"><i class="fa fa-bar-chart"></i> Статистика</div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group-item">Количество стран<span class="pull-right"><%= @country_count %></span></li>
+      <li class="list-group-item">Количество регионов<span class="pull-right"><%= @region_count %></span></li>
+      <li class="list-group-item">Количество городов<span class="pull-right"><%= @city_count %></span></li>
+      <li class="list-group-item">Количество турбаз<span class="pull-right"><%= @tourist_base_count %></span></li>
+    </ul>
+  </div>
+</div>
