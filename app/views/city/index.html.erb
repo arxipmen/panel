@@ -7,9 +7,9 @@
     Страна <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li class="country_filter"><a href="#">Все страны</a></li>
+    <li class="country_filter"><a href="#" class="country_filter">Все страны</a></li>
     <% @country.each do |country| %>
-        <li class="country_filter"><a href="#"><%= country.name %></a></li>
+        <li class="country_filter"><a href="#" class="country_filter"><%= country.name %></a></li>
     <% end %>
   </ul>
 </div>
