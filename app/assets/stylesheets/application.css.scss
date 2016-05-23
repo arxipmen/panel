@@ -1,0 +1,67 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+/* Global Styles */
+
+/* ------------------------------- */
+
+body {
+  background-color: #f8f8f8;
+}
+.container-fluid {
+  padding-left: 0;
+}
+#page-wrapper {
+  padding: 0 0;
+  min-height: 568px;
+  background-color: #fff;
+}
+.navbar-static-side ul li {
+  border-bottom: 1px solid #e7e7e7;
+}
+.add {
+  top: -40px;
+  float: right;
+  z-index: 10;
+}
+@media(min-width:768px) {
+  #page-wrapper {
+    position: inherit;
+    margin: 0 0 0 250px;
+    min-height: 800px;
+    padding: 0 10px;
+    border-left: 1px solid #e7e7e7;
+  }
+}
+@media(min-width:768px) {
+  .navbar-static-side {
+    z-index: 1;
+    position: absolute;
+    width: 250px;
+  }
+  .navbar-top-links .dropdown-messages,
+  .navbar-top-links .dropdown-tasks,
+  .navbar-top-links .dropdown-alerts {
+    margin-left: auto;
+  }
+}
+
+
+
+
