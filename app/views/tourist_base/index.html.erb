@@ -7,9 +7,9 @@
     Страна <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#" id="all">Все страны</a></li>
+    <li class="country_filter"><a href="#" id="country_all">Все страны</a></li>
     <% @country.each do |country| %>
-        <li><a href="#" id="<%= country.id %>"><%= country.name %></a></li>
+        <li class="country_filter"><a href="#" id="country_<%= country.id %>"><%= country.name %></a></li>
     <% end %>
   </ul>
 </div>
@@ -19,9 +19,9 @@
     Регион <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#" id="all">Все регионы</a></li>
+    <li class="region_filter"><a href="#" id="region_all">Все регионы</a></li>
     <% @region.each do |region| %>
-        <li><a href="#" id="<%= region.id %>"><%= region.name %></a></li>
+        <li class="region_filter"><a href="#" id="region_<%= region.id %>"><%= region.name %></a></li>
     <% end %>
   </ul>
 </div>
@@ -31,9 +31,9 @@
     Город <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#" id="all">Все регионы</a></li>
+    <li class="city_filter"><a href="#" id="city_all">Все города</a></li>
     <% @city.each do |city| %>
-        <li><a href="#" id="<%= city.id %>"><%= city.name %></a></li>
+        <li class="city_filter"><a href="#" id="city_<%= city.id %>"><%= city.name %></a></li>
     <% end %>
   </ul>
 </div>
@@ -52,7 +52,7 @@
     <th>&nbsp;</th>
   </tr>
   <% @tourist_base.each do |tourist_base| %>
-      <tr>
+      <tr class="row_tourist_base">
         <td><%= tourist_base.city.region.country.name %></td>
         <td><%= tourist_base.city.region.name %></td>
         <td><%= tourist_base.city.name %></td>
@@ -67,3 +67,29 @@
       </tr>
   <% end %>
 </table>
+
+<script>
+  $('.country_filter > a').click(function () {
+    var country_name = $(this).text();
+    var create_str = 'td:contains(' + country_name + ')';
+    $('tr.row_tourist_base').hide();
+    $(create_str).parent().show('slow');
+    if('Все страны' == country_name) $('tr').show('slow');
+  });
+
+  $('.region_filter > a').click(function () {
+    var country_name = $(this).text();
+    var create_str = 'td:contains(' + country_name + ')';
+    $('tr.row_tourist_base').hide();
+    $(create_str).parent().show('slow');
+    if('Все регионы' == country_name) $('tr').show('slow');
+  });
+
+  $('.city_filter > a').click(function () {
+    var country_name = $(this).text();
+    var create_str = 'td:contains(' + country_name + ')';
+    $('tr.row_tourist_base').hide();
+    $(create_str).parent().show('slow');
+    if('Все города' == country_name) $('tr').show('slow');
+  });
+</script>

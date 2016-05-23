@@ -7,9 +7,9 @@
     Страна <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#" id="all">Все страны</a></li>
+    <li class="country_filter"><a href="#">Все страны</a></li>
     <% @country.each do |country| %>
-        <li><a href="#" id="<%= country.id %>"><%= country.name %></a></li>
+        <li class="country_filter"><a href="#"><%= country.name %></a></li>
     <% end %>
   </ul>
 </div>
@@ -19,9 +19,9 @@
     Регион <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#" id="all">Все регионы</a></li>
+    <li class="region_filter"><a href="#" id="region_all">Все регионы</a></li>
     <% @region.each do |region| %>
-        <li><a href="#" id="<%= region.id %>"><%= region.name %></a></li>
+        <li class="region_filter"><a href="#"><%= region.name %></a></li>
     <% end %>
   </ul>
 </div>
@@ -37,7 +37,7 @@
     <th>&nbsp;</th>
   </tr>
   <% @city.each do |city| %>
-      <tr>
+      <tr class="row_city">
         <td><%= city.region.country.name %></td>
         <td><%= city.region.name %></td>
         <td><%= city.name %></td>
@@ -49,3 +49,21 @@
       </tr>
   <% end %>
 </table>
+
+<script>
+  $('.country_filter > a').click(function () {
+    var country_name = $(this).text();
+    var create_str = 'td:contains(' + country_name + ')';
+    $('tr.row_city').hide();
+    $(create_str).parent().show('slow');
+    if('Все страны' == country_name) $('tr').show('slow');
+  });
+
+  $('.region_filter > a').click(function () {
+    var country_name = $(this).text();
+    var create_str = 'td:contains(' + country_name + ')';
+    $('tr.row_city').hide();
+    $(create_str).parent().show('slow');
+    if('Все регионы' == country_name) $('tr').show('slow');
+  });
+</script>
